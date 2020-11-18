@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,5 +32,24 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+    }
+    public void setListeners1()
+    {  View view = getView();
+        if (view != null) {
+            final Button button = (Button) view.findViewById(R.id.button);
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    button.setText("rockll");
+                    // Code here executes on main thread after user presses button
+                }
+            });
+        }
+
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        setListeners1();
+
     }
 }
