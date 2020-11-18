@@ -1,6 +1,8 @@
 package hfad.com.toddycustomer3;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -10,7 +12,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+import hfad.com.toddycustomer3.ui.home.HomeFragment;
+
+public class MainActivity extends AppCompatActivity implements HomeFragment.Listener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+    }
+    @Override
+    public void itemClicked() {
+        String TAG = "MRocking";
+
+        Log.i(TAG, "MyClass.getView() — get item numberooooooooooooooooooooooooooooooooooooo" );
+        Intent intent = new Intent(this, ScannedItemDisplay.class);
+
+       startActivity(intent);
     }
 
 
